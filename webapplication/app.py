@@ -20,6 +20,7 @@ from utils import model
 
 app = Flask(__name__)
 
+
 # Global variable
 #DAYS = 500
 

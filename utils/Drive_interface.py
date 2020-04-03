@@ -73,12 +73,12 @@ class Drive():
                 print(u'{0} ({1})'.format(item['name'], item['id']))
         return items
 
-    def upload_file(self, service, path, filename, mimetype):
+    def upload_file(self, path, filename, mimetype):
         file_metadata = {'name': filename}
         media = MediaFileUpload(path,
                                 mimetype=mimetype,
                                 resumable=True, )
-        file = service.files().create(body=file_metadata,
+        file = self.service.files().create(body=file_metadata,
                                       media_body=media,
                                       fields='id').execute()
         print('uploaded file with File ID: %s' % file.get('id'))
@@ -147,7 +147,6 @@ class Drive():
                 "Download %d%%." % int(status.progress() * 100)
 
 if __name__=="__main__":
-    drive = Drive()
     path = pc.get_RKI_landkreise_file()
     filename = path.name
     mimetype, encoding = mimetypes.guess_type(path)
