@@ -123,7 +123,7 @@ class Drive():
             elif len(ID)>1:
                 lastID = ID[-1]
                 print(
-                    "Several name matches found with that filename for date %s, taking last id of the list: %s" % (day.__str()[:10], lastID)
+                    "Several name matches found with that filename for date %s, taking last id of the list: %s" % (day.__str__()[:10], lastID)
                     )
                 self.download_file(lastID, destination)
                 found = True
